@@ -3,7 +3,7 @@ const GET_CASH = "GET_CASH";
 
 
 const defaultState = {
-    cash: 1400
+    cash: 1000
 }
 
 

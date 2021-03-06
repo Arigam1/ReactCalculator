@@ -8,7 +8,6 @@ import { addCustomerAction, removeCustomerAction } from './redux/customersReduce
 
 
 function App() {
-  debugger
 
   const dispatch = useDispatch();
   const cash = useSelector(state => state.cash.cash);
@@ -35,18 +34,26 @@ function App() {
 
   return (
     <div className={"app"}>
-      <div style={{ fontSize: "3rem" }}>Баланс: {cash}</div>
+      <div className={"balance"}>Баланс: {cash}</div>
       <div className={"buttons"}>
-        <button onClick={() => addCash(Number(prompt()))}>Пополнить</button>
-        <button onClick={() => getCash(Number(prompt()))}>Снять со счета</button>
-        <button onClick={() => addCustomer(prompt())}>Добавить клиента</button>
-        <button onClick={() => dispatch(fetchUsers())}>Показать клиентов</button>
+        <div>
+          <button className={"button"} onClick={() => addCash(Number(prompt()))}>Пополнить</button>
+        </div>
+        <div>
+          <button className={"button"} onClick={() => getCash(Number(prompt()))}>Снять со счета</button>
+        </div>
+        <div>
+          <button className={"button"} onClick={() => addCustomer(prompt())}>Добавить клиента</button>
+        </div>
+        <div>
+          <button className={"button"} onClick={() => dispatch(fetchUsers())}>Показать клиентов</button>
+        </div>
         {/* <button onClick={() => removeCustomer(prompt())}>Удалить клиента</button> */}
       </div>
       {customers.length > 0 ?
         <div>
           {customers.map(customer =>
-            <div onClick={() => removeCustomer(customer)} style={{ margin: '5px', padding: '10px', background: '#f00' }}>
+            <div onClick={() => removeCustomer(customer)} className={"customers"}>
               {customer.name}
             </div>)}
         </div>
